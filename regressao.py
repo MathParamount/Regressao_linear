@@ -24,8 +24,7 @@ class Regressao:
 		media_y = np.mean(self.y)
 
 		#Aplicação da formula: y = ax + b
-		#O valor de x é a média dele
-	
+		
 		a = (tamanho_x*soma_xy - soma_x*soma_y) / (tamanho_x * soma_x_quadr - (soma_x ** 2))
 		b = media_y - a*media_x
 
@@ -58,20 +57,20 @@ class Regressao:
 				lista_cores.append('gray')
 
 		plt.scatter(self.x,self.y,marker = 'o', c = lista_cores)
-		plt.plot(self.x,self.formula(self.x), label = f"Regressão: y = {a: .2f}x + {b: .2f}",color = "Yellow")
+		plt.plot(self.x,self.formula(self.x), label = f"Regressao: y = {a: .2f}x + {b: .2f}",color = "Yellow")
 		plt.xlabel("x")
 		plt.ylabel("y")
-		plt.title("Ajuste de regressão linear")
+		plt.title("Ajuste de regressao linear")
 		plt.legend()
 		plt.show()
 	
-	#Fórmulas de previsão do modelo
+	#Fórmula de previsão do modelo
 	def previsao(self,x):
 		
 		x = np.array(x)
 		return self.formula(x)
 
-	#Soma quadrática total( tamanho total do problema)
+	#Soma quadrática total (tamanho total do problema)
 	def soma_quadratica(self):
 		
 		media_y = self.y.mean()
@@ -83,7 +82,7 @@ class Regressao:
 		dados = self.previsao(self.x)
 		return sum((self.y - dados) ** 2)
 	
-	#Variação total que é explicada( se próximo de soma_quadrática o modelo é bom, se prox.outro o modelo é ruim)
+	#Variação total do modelo
 	def soma_regressao_quadratica(self):
 		return self.soma_quadratica() - self.erro_quadratico()
 	
@@ -91,8 +90,7 @@ class Regressao:
 		return 1 - (self.erro_quadratico() / self.soma_quadratica())
 
 
-#Agora deve usar a classe para definer os dados de entrada, crie o ajuste do modelo, faça previsao e avalie o modelo R^2. Melhorias: adicionar validadores de x e y, fazer gráficos dos resultados com o matplotlb.
-
+#Ajuste do modelo
 x = [2,4,6,8,10]
 y = [5,10,15,20,30]
 
@@ -101,6 +99,7 @@ if len(x) == len(y):
 	modelo.fit()
 	
 	#Prever valores de x com os fornecidos
+	
 	previsao = modelo.previsao([10,15,30])
 	r2 = modelo.pontuacao()
 else:
