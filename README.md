@@ -160,4 +160,8 @@ print(f"A previsao dos dados são: {previsao}\n")
 print(f"A qualidade do modelo é: {r2: .4}\n")
 ```
 
-## Conclusão
+Uma amostra para o resultado gerado a partir do código:
+
+<div align="center">
+<img src="https://github.com/user-attachments/assets/a6dedc0e-768b-4f31-b0ba-e08e72c42d6e" width="400px" />
+</div>
